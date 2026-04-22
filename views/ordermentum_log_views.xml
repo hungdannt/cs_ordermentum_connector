@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_cs_ordermentum_log_tree" model="ir.ui.view">
+        <field name="name">cs.ordermentum.log.tree</field>
+        <field name="model">cs.ordermentum.log</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="create_date"/>
+                <field name="log_type"/>
+                <field name="state"/>
+                <field name="event"/>
+                <field name="reference"/>
+                <field name="sale_order_id"/>
+                <field name="invoice_id"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_cs_ordermentum_log_form" model="ir.ui.view">
+        <field name="name">cs.ordermentum.log.form</field>
+        <field name="model">cs.ordermentum.log</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="log_type"/>
+                        <field name="state"/>
+                        <field name="event"/>
+                        <field name="reference"/>
+                        <field name="sale_order_id"/>
+                        <field name="invoice_id"/>
+                        <field name="create_date" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Steps">
+                            <field name="line_ids" nolabel="1">
+                                <tree>
+                                    <field name="sequence"/>
+                                    <field name="state"/>
+                                    <field name="event"/>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Request">
+                            <field name="request_payload" nolabel="1" widget="text"/>
+                        </page>
+                        <page string="Response">
+                            <field name="response_payload" nolabel="1" widget="text"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_cs_ordermentum_log" model="ir.actions.act_window">
+        <field name="name">Logs</field>
+        <field name="res_model">cs.ordermentum.log</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

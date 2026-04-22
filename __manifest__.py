@@ -1,0 +1,26 @@
+{
+    "name": "Ordermentum Connector",
+    "author": "Dan Tran",
+    "category": "Sales/Delivery",
+    "version": "17.0.1.0.0",
+    "depends": [
+        "base",
+        "sale_management",
+        "stock",
+        "account",
+        "mail",
+        "cs_cartoncloud_connector",
+    ],
+    "data": [
+        "security/ir.model.access.csv",
+        "data/ordermentum_cron_data.xml",
+        "data/ordermentum_mail_templates.xml",
+        "views/res_config_settings_views.xml",
+        "views/res_partner_view.xml",
+        "views/sale_order_view.xml",
+        "views/ordermentum_log_views.xml",
+        "views/menu.xml",
+    ],
+    "application": True,
+    "license": "OPL-1",
+}

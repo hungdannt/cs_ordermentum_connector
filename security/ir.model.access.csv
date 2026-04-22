@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cs_ordermentum_log_user,cs.ordermentum.log user,model_cs_ordermentum_log,base.group_user,1,0,0,1
+access_cs_ordermentum_log_line_user,cs.ordermentum.log.line user,model_cs_ordermentum_log_line,base.group_user,1,0,0,1

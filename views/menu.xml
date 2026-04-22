@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <record id="menu_cs_ordermentum_root" model="ir.ui.menu">
+        <field name="name">Ordermentum</field>
+        <field name="sequence" eval="1" />
+        <field name="groups_id" eval="[(6,0,[ref('base.group_user')])]" />
+        <field name="web_icon">cs_ordermentum_connector,static/description/icon.png</field>
+    </record>
+
+    <record id="menu_cs_ordermentum_auth_settings" model="ir.ui.menu">
+        <field name="name">Settings</field>
+        <field name="action" ref="action_cs_ordermentum_settings" />
+        <field name="parent_id" ref="menu_cs_ordermentum_root" />
+        <field name="sequence" eval="10" />
+    </record>
+
+    <record id="menu_cs_ordermentum_logs" model="ir.ui.menu">
+        <field name="name">Logs</field>
+        <field name="action" ref="action_cs_ordermentum_log" />
+        <field name="parent_id" ref="menu_cs_ordermentum_root" />
+        <field name="sequence" eval="2" />
+    </record>
+
+    <record id="menu_cs_ordermentum_all_orders" model="ir.ui.menu">
+        <field name="name">All Orders</field>
+        <field name="action" ref="action_sale_order_ordermentum" />
+        <field name="parent_id" ref="menu_cs_ordermentum_root" />
+        <field name="sequence" eval="1" />
+    </record>
+</odoo>

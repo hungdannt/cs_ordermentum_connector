@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Action for Ordermentum Orders using original views -->
+    <record id="action_sale_order_ordermentum" model="ir.actions.act_window">
+        <field name="name">All Orders</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('is_ordermentum', '=', True)]</field>
+        <field name="context">{'default_is_ordermentum': True}</field>
+    </record>
+
+    <!-- Inherit the original form view -->
+    <record id="sale_order_form_ordermentum_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.ordermentum.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+              
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="po_number" readonly="1" invisible="not ordermentum_order_id" />
+            </xpath>
+            <xpath expr="//field[@name='client_order_ref']" position="after">
+                <field name="ordermentum_order_id" readonly="0" />
+                <field name="ordermentum_order_status" readonly="1" />
+            </xpath>
+            <xpath expr="//field[@name='partner_shipping_id']" position="after">
+                <field name="ordermentum_fulfilment_type" invisible="not ordermentum_order_id" readonly="cartoncloud_outbound_order_uuid"/>
+                <field name="warehouse_id" invisible="ordermentum_fulfilment_type == 'van'" readonly="cartoncloud_outbound_order_uuid" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
